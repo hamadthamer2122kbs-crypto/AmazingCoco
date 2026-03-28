@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yinny</title>
+
+<style>
+    body {
+        margin: 0;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+        color: white;
+        text-align: center;
+        background: black;
+        cursor: none;
+    }
+
+    .bg {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: url('https://i.pinimg.com/originals/c0/6c/2b/c06c2b9f16567b653e62bea9698a7993.gif') center/cover no-repeat;
+        z-index: -2;
+        filter: brightness(0.5);
+    }
+
+    h1.top {
+        position: absolute;
+        top: 20px;
+        width: 100%;
+        font-size: 40px;
+        text-shadow: 0 0 10px cyan, 0 0 20px blue;
+    }
+
+    .yinny {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 110px;
+        font-weight: bold;
+        color: #00ccff;
+        text-shadow: 0 0 10px #00ccff, 0 0 40px #0099ff;
+        animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 10px #00ccff; }
+        to { text-shadow: 0 0 40px #00ccff, 0 0 80px #0099ff; }
+    }
+
+    .box {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 25px 50px;
+        border-radius: 15px;
+        background: rgba(0, 204, 255, 0.15);
+        box-shadow: 0 0 30px cyan;
+        font-size: 22px;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<h1 class="top">The Best Twin</h1>
+
+<div class="yinny">Yinny</div>
+
+<div class="box" id="boxText"></div>
+
+<script>
+    const messages = [
+        "JJS Player 🏀",
+        "Him 👑",
+        "GOAT 🐐"
+    ];
+
+    let i = 0;
+    const box = document.getElementById("boxText");
+
+    function changeText() {
+        box.textContent = messages[i];
+        i = (i + 1) % messages.length;
+    }
+
+    changeText(); // run once immediately
+    setInterval(changeText, 2000);
+</script>
+
+</body>
+</html>
